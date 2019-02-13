@@ -26,6 +26,6 @@ class MedianFilter(object):
 		# conditional until counter == D
 		if (self.i < self.D):
 			self.i = self.i + 1
-			return np.median(filter_data[:self.i,:], axis=0)
+			return np.median(self.filter_data[:self.i,:], axis=0)
 		else:
-			return np.median(filter_data, axis=0)
+			return np.median(self.filter_data, axis=0)
