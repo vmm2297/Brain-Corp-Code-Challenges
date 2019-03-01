@@ -39,7 +39,7 @@ Output: [-3  3  2 -1  0 -3 -3  3  3 -3]
 
 ## Temporal Median Filter
 
-The `lidar_filter.py` module contains a `MedianFilter` object that takes as numerical parameters `D` and `N` where `D` is the desired number of current + previous scans and `N` is the length of the incoming LIDAR data array (must be consistent for each `MedianFilter` object). The `MedianFilter` object has an `update` method that takes as a parameter a single N-dimensional array `lidar_data`. The `update` method returns an N-dimensional array that is the median of the current and previous `D` scans of LIDAR data arrays. For the first `D` scans, the filter returns the median of all the scans so far.
+The `lidar_filter.py` module contains a `MedianFilter` object that takes as numerical parameters `D` and `N` where `D` is the desired number of current + previous scans and `N` is the length of the incoming LIDAR data array (`N` must be consistent for each `MedianFilter` object). The `MedianFilter` object has an `update` method that takes as a parameter a single N-dimensional array `lidar_data`. The `update` method returns an N-dimensional array that is the median of the current and previous `D` scans of LIDAR data arrays. For the first `D` scans, the filter returns the median of all the scans so far.
 
 To see the full docstring for `MedianFilter`, type `pydoc lidar_filter.MedianFilter` in the command line.
 
@@ -54,27 +54,27 @@ To see the full docstring for `MedianFilter`, type `pydoc lidar_filter.MedianFil
 >>> median_filter = MedianFilter(D,N)
 
 >>> lidar_data0 = [0,1,2,1,3]
->>> print("Output: " + str(median_filter.update(lidar_data0)))
+>>> print "Output: " + str(median_filter.update(lidar_data0))
 
 Output: [0. 1. 2. 1. 3.]
 
 >>> lidar_data1 = [1,5,7,1,3]
->>> print("Output: " + str(median_filter.update(lidar_data1)))
+>>> print "Output: " + str(median_filter.update(lidar_data1))
 
 Output: [0.5 3.  4.5 1.  3. ]
 
 >>> lidar_data2 = [2,3,4,1,0]
->>> print("Output: " + str(median_filter.update(lidar_data2)))
+>>> print "Output: " + str(median_filter.update(lidar_data2))
 
 Output: [1. 3. 4. 1. 3.]
 
 >>> lidar_data3 = [3,3,3,1,3]
->>> print("Output: " + str(median_filter.update(lidar_data3)))
+>>> print "Output: " + str(median_filter.update(lidar_data3))
 
 Output: [1.5 3.  3.5 1.  3. ]
 
 >>> lidar_data4 = [10,2,4,0,0]
->>> print("Output: " + str(median_filter.update(lidar_data4)))
+>>> print "Output: " + str(median_filter.update(lidar_data4))
 
 Output: [2.5 3.  4.  1.  1.5]
 
@@ -86,5 +86,8 @@ The **temporal median filter** returns the median of the current and the previou
 
 > yi(t) = median( xi(t) , xi(t-1) , ... , xi(t-D) )
 
-where x and y are input and output length-N scans and i ranges from 0 to N-1. Here is a visual example of the output (Y) with D=3 for and input (X) of dimension N=5 for the first 5 updates:
+where x and y are input and output length-N scans and i ranges from 0 to N-1.
+
+Here is a visual example of the output (Y) with D=3 for and input (X) of dimension N=5 for the first 5 updates:
+
 ![alt text](./EXAMPLE.PNG)
