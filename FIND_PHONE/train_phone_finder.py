@@ -36,7 +36,7 @@ for path in pathlist:
 		save_file = save_path + str(path)[len(data_path.strip('./')):]
 		cv2.imwrite(save_file,image)
 
-	#else, contour "algorithm" to detect phone
+	#else, contour "algorithm" to detect phone contour
 	else:
 		cnts_values = np.ones(N)*np.maximum(image.shape[0],image.shape[1])
 		for i in range(N):

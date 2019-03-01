@@ -25,7 +25,7 @@ N = len(cnts)
 if not N:
 	print("0.5 0.5")
 
-#else, contour "algorithm" to detect phone
+#else, contour "algorithm" to detect phone contour
 else:
 	cnts_values = np.ones(N)*np.maximum(image.shape[0],image.shape[1])
 	for i in range(N):
